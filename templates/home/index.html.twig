@@ -4,7 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	<div class="banner-item img-fluid d-flex justify-content-center align-item-center">
+	{% include "navbar/navbar.html.twig" %}
+	<div class="banner-item img-fluid mt-5 d-md-flex justify-content-center align-item-center">
 		<img src="{{ asset('build/images/banner.jpg') }}" alt="bannière" class="img-fluid ">
 	</div>
 
@@ -13,7 +14,7 @@
 		<section class="row align-self-center">
 			<h1>Sublimez les précieux moments de votre vie</h1>
 
-			<div class="col-md-10">
+			<div class="col-md-10 m-auto">
 				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 					<div class="carousel-indicators">
 						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -94,5 +95,5 @@
 			</div>
 		</section>
 	</main>
-
+	{% include "footer/footer.html.twig" %}
 {% endblock %}
