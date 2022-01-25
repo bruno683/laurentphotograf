@@ -52,7 +52,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Produits'),
             MenuItem::linkToCrud('Categories', 'fa fa-tags', Categories::class),
-            MenuItem::linkToCrud('Photos', 'fa fa-file-text', Photos::class),
+            MenuItem::linkToCrud('Photos', 'fa fa-file-image', Photos::class),
 
         ];
     }

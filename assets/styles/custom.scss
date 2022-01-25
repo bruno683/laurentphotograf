@@ -11,10 +11,9 @@ p {
 }
 
 html {
-    height: 100vh;
+    height: 100%;
 }
 
-main,
-section {
-    height: 100%;
+main {
+    height: 100vh;
 }
