@@ -28,6 +28,9 @@ class Photos
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $updateAt;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $name;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,6 +81,18 @@ class Photos
     public function setUpdateAt(?\DateTimeInterface $updateAt): self
     {
         $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
