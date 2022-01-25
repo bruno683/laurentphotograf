@@ -2,8 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Photos;
+
 use App\Entity\Categories;
+use App\Entity\Photos;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -49,8 +50,7 @@ class DashboardController extends AbstractDashboardController
     {
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-
-            MenuItem::section('Photo'),
+            MenuItem::section('Produits'),
             MenuItem::linkToCrud('Categories', 'fa fa-tags', Categories::class),
             MenuItem::linkToCrud('Photos', 'fa fa-file-text', Photos::class),
 
