@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
-	{% include "navbar/navbar.html.twig" %}
-	<div class="banner-item img-fluid mt-5 d-md-flex justify-content-center align-item-center">
-		<img src="{{ asset('build/images/banner.jpg') }}" alt="bannière" class="img-fluid ">
-	</div>
+	<header>
+		<div class="banner-item img-fluid mt-5 d-md-flex justify-content-center align-item-center">
+			<img src="{{ asset('build/images/banner.jpg') }}" alt="bannière" class="img-fluid ">
+		</div>
+	</header>
 
 	<main class="container mt-5">
 		<hr>
