@@ -25,7 +25,7 @@ class DashboardController extends AbstractDashboardController
     {
         //return parent::index();
 
-        $url = $this->adminUrlGenerator->setController(PhotosCrudController::class);
+        $url = $this->adminUrlGenerator->setController(PhotosCrudController::class)->generateUrl();
         return $this->redirect($url);
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
