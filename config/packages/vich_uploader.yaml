@@ -1,10 +1,19 @@
 vich_uploader:
-    db_driver: orm
+    db_driver: orm        # or mongodb or phpcr - default db driver
+    twig: true            # set to false to disable twig integration
+    form: true            # set to false to disable form integration
+    storage: file_system  # or gaufrette or flysystem
+    metadata:
+        auto_detection: true
+        cache: file
+        type: attribute    # or attribute
 
     mappings:
         product_images:
             uri_prefix: '%product_images%'
             upload_destination: '%kernel.project_dir%/public%product_images%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+            inject_on_load: false
             delete_on_update: false
             delete_on_remove: false
