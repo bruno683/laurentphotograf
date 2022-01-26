@@ -2,25 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Photos;
+use App\Entity\Products;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Photos|null find($id, $lockMode = null, $lockVersion = null)
- * @method Photos|null findOneBy(array $criteria, array $orderBy = null)
- * @method Photos[]    findAll()
- * @method Photos[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Products|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Products|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Products[]    findAll()
+ * @method Products[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PhotosRepository extends ServiceEntityRepository
+class ProductsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Photos::class);
+        parent::__construct($registry, Products::class);
     }
 
     // /**
-    //  * @return Photos[] Returns an array of Photos objects
+    //  * @return Products[] Returns an array of Products objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +38,7 @@ class PhotosRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Photos
+    public function findOneBySomeField($value): ?Products
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

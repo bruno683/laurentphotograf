@@ -14,19 +14,19 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
-
     public function __construct(private AdminUrlGenerator $adminUrlGenerator)
     {
     }
+
     /**
      * @Route("/admin", name="admin")
      */
     public function index(): Response
     {
-        //return parent::index();
+        return parent::index();
 
-        $url = $this->adminUrlGenerator->setController(PhotosCrudController::class)->generateUrl();
-        return $this->redirect($url);
+        //$url = $this->adminUrlGenerator->setController(PhotosCrudController::class)->generateUrl();
+        //return $this->redirect($url);
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -45,15 +45,17 @@ class DashboardController extends AbstractDashboardController
         return Dashboard::new()
             ->setTitle('LaurentPhotograf'); // the name visible to end users
     }
-
+    /*
     public function configureMenuItems(): iterable
     {
+       
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Produits'),
-            MenuItem::linkToCrud('Categories', 'fa fa-tags', Categories::class),
+            MenuItem::linkToCrud('catégories', 'fa fa-list', Categories::class),
             MenuItem::linkToCrud('Photos', 'fa fa-file-image', Photos::class),
 
         ];
-    }
+       
+    } */
 }
