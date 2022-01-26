@@ -3,7 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Products;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProductsCrudController extends AbstractCrudController
 {
@@ -12,14 +15,14 @@ class ProductsCrudController extends AbstractCrudController
         return Products::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+
+            TextField::new('name'),
+            ImageField::new('image')->setBasePath('upload/images')->onlyOnIndex(),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyOnForms(),
         ];
     }
-    */
 }

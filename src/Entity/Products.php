@@ -7,7 +7,7 @@ use DateTimeInterface;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\DateTime;
+
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
 #[Vich\Uploadable]
