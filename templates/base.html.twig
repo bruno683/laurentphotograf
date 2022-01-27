@@ -31,9 +31,9 @@
 				<img src="{{ asset('build/images/sunset Anglet.jpg') }}" alt="bannière" class="img-fluid ">
 			</div>
 		</header>
+		<section class="content"> {% block body %}{% endblock %}
+			</section>
+			{% include "footer/footer.html.twig" %}
 
-		{% block body %}{% endblock %}
-		{% include "footer/footer.html.twig" %}
-
-	</body>
-</html>
+		</body>
+	</html>
