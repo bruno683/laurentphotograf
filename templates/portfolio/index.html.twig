@@ -4,14 +4,23 @@
 {% endblock %}
 
 {% block body %}
-	{% for photo in photos %}
-		<div class="container">
-			<div class="cols-3  mt-5">
-				<div class="row">
+
+	<div class="portfolio">
+		<h1>{{title}}</h1>
+		{% for photo in photos %}
+			<div class="container m-auto cols-3">
+				<div class="row  mt-5">
+					<hr>
+					<h2>
+						{{ photo.name }}
+					</h2>
 					<img src="{{ asset('/upload/images/' ~ photo.image)}}" alt="photo produit">
+					<p>{{photo.description}}</p>
 				</div>
 			</div>
-		</div>
-	{% endfor %}
-	<!--style="width: 80%; height: 80%"-->
+		{% endfor %}
+
+	</div>
+
+
 {% endblock %}
