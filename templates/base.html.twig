@@ -26,6 +26,12 @@
 	</head>
 	<body>
 		{% include "navbar/navbar.html.twig" %}
+		<header>
+			<div class="banner-item img-fluid  d-md-flex justify-content-center align-item-center">
+				<img src="{{ asset('build/images/sunset Anglet.jpg') }}" alt="bannière" class="img-fluid ">
+			</div>
+		</header>
+
 		{% block body %}{% endblock %}
 		{% include "footer/footer.html.twig" %}
 
