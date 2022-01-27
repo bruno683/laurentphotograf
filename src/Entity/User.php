@@ -43,6 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $phone;
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Post::class)]
+    #[ORM\Column(nullable: true)]
     private $posts;
 
     public function __construct()

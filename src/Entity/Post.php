@@ -33,11 +33,15 @@ class Post
     #[Vich\UploadableField(mapping: 'post_images', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
-    #[ORM\Column(type: 'datetime')]
-    private ?\DateTimeInterface $updatedAt = null;
-
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'posts')]
+    #[ORM\Column(nullable: true)]
     private $author;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isPublished;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $createdAt;
 
     public function getId(): ?int
     {
@@ -95,12 +99,6 @@ class Post
     public function setImageFile(?File $image = null): void
     {
         $this->imageFile = $image;
-
-        if (null !== $image) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
-        }
     }
 
     public function getImageFile(): ?File
@@ -108,14 +106,6 @@ class Post
         return $this->imageFile;
     }
 
-
-    /**
-     * @return DateTimeInterface
-     */
-    public function getUpdateAt(): DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
 
     public function getPortfolio(): ?bool
     {
@@ -125,6 +115,30 @@ class Post
     public function setPortfolio(bool $portfolio): self
     {
         $this->portfolio = $portfolio;
+
+        return $this;
+    }
+
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

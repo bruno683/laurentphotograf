@@ -2,8 +2,7 @@
 
 namespace App\Controller\Admin;
 
-
-
+use App\Entity\Post;
 use App\Entity\Products;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Symfony\Component\HttpFoundation\Response;
@@ -56,11 +55,15 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Photos'),
-            MenuItem::subMenu('Gérer les photos', 'fas-fa-bar')->setSubItems([
+            MenuItem::subMenu('Gestion des photos photos', 'fas-fa-bar')->setSubItems([
                 MenuItem::linkToCrud('Afficher les Photos', 'fa fa-eye', Products::class),
-                MenuItem::linkToCrud('Ajouter des Photos', 'fa fa-plus', Products::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Ajouter des Photos', 'fa fa-plus', Products::class)->setAction(Crud::PAGE_NEW)
+            ]),
+            MenuItem::section('Journal'),
+            MenuItem::subMenu('tableau de bord du journal', 'fas-fa-bar')->setSubItems([
+                MenuItem::linkToCrud('Liste des articles', 'fa fa-list', Post::class),
+                MenuItem::linkToCrud('Créer un article', 'fa fa-pen', Post::class)->setAction(Crud::PAGE_NEW)
             ])
-
         ];
     }
 }
