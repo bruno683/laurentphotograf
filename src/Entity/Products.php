@@ -37,6 +37,9 @@ class Products
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $updatedAt = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private $portfolio;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,5 +112,17 @@ class Products
     public function getUpdateAt(): DateTimeInterface
     {
         return $this->updatedAt;
+    }
+
+    public function getPortfolio(): ?bool
+    {
+        return $this->portfolio;
+    }
+
+    public function setPortfolio(bool $portfolio): self
+    {
+        $this->portfolio = $portfolio;
+
+        return $this;
     }
 }
