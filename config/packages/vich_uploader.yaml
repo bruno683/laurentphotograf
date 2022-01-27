@@ -7,19 +7,16 @@ vich_uploader:
         auto_detection: true
         cache: file
         type: attribute    # or attribute
-
+        
     mappings:
         product_images:
             uri_prefix: '%product_images%'
             upload_destination: '%kernel.project_dir%/public%product_images%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
-
             inject_on_load: false
             delete_on_update: false
             delete_on_remove: false
-
-    mappings:
-        product_images:
+        post_images:
             uri_prefix: '%post_images%'
             upload_destination: '%kernel.project_dir%/public%post_images%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
