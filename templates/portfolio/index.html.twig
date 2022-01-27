@@ -3,4 +3,8 @@
 {% block title %}Hello PortfolioController!
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+	{% for item in items %}
+		<img src={{item.name}} alt="" srcset="">
+	{% endfor %}
+{% endblock %}
