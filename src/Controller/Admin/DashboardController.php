@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 
 
 use App\Entity\Products;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -14,8 +15,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
+
     public function __construct(private AdminUrlGenerator $adminUrlGenerator)
     {
+        $this->adminUrlGenerator = $adminUrlGenerator;
     }
 
     /**
@@ -24,6 +27,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         //return parent::index();
+
 
         $url = $this->adminUrlGenerator->setController(ProductsCrudController::class)->generateUrl();
         return $this->redirect($url);
@@ -51,8 +55,12 @@ class DashboardController extends AbstractDashboardController
 
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-            MenuItem::section('Produits'),
-            MenuItem::linkToCrud('Produits', 'fa fa-file-image', Products::class),
+            MenuItem::section('Photos'),
+            MenuItem::subMenu('Gérer les photos', 'fas-fa-bar')->setSubItems([
+                MenuItem::linkToCrud('Afficher les Photos', 'fa fa-eye', Products::class),
+                MenuItem::linkToCrud('Ajouter des Photos', 'fa fa-plus', Products::class)->setAction(Crud::PAGE_NEW),
+            ])
+
         ];
     }
 }
