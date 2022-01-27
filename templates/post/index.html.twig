@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PostController!{% endblock %}
+{% block title %}Hello PostController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<main>
+		<div class="container">
+			{% for post in posts %}
+				<div class="card rounded shadow-lg p-2">
+					<img src="{{asset('upload/post/' ~ post.image)}}" class="card-img-top" alt="image de la carte">
+					<div class="card-body">
+						<h5 class="card-title">{{post.title}}</h5>
+						<p class="card-text">{{post.content}}</p>
+						<a href="#" class="btn btn-primary">Lire plus</a>
+					</div>
+				</div>
+			{% endfor %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/LaurentPhotograf/src/Controller/PostController.php'|file_link(0) }}">src/Controller/PostController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/LaurentPhotograf/templates/post/index.html.twig'|file_link(0) }}">templates/post/index.html.twig</a></code></li>
-    </ul>
-</div>
+		</div>
+	</main>
 {% endblock %}
