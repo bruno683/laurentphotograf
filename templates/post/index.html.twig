@@ -14,7 +14,7 @@
 						<div class="card-body">
 							<h5 class="card-title">{{post.title}}</h5>
 							<p class="card-text">{{post.content|u.truncate(100)}}</p>
-							<a href="#" class="btn btn-primary">Lire plus</a>
+							<a href="{{path('show_post',{'id': post.id})}}" class="btn btn-primary">Lire plus</a>
 						</div>
 					</div>
 				</div>

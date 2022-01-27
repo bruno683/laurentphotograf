@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{post.title}}
+{% endblock %}
+{% block body %}
+	<section class="container-fluid col-md-10 col-sm-12 m-auto">
+		<div class="card col-md-8 col-sm-10 m-auto my-4 shadow-lg">
+			<h1>{{post.title}}</h1>
+			<img src="{{asset('/upload/post/' ~ post.image)}}" alt="image du post">
+			<p class="p-2">{{post.content}}</p>
+			<small>{{post.author}}</small>
+		</div>
+
+	</section>
+{% endblock %}
