@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductsRepository;
 use Symfony\Component\HttpFoundation\File\File;
@@ -39,6 +41,14 @@ class Products
 
     #[ORM\Column(type: 'boolean')]
     private $portfolio;
+
+    #[ORM\OneToMany(mappedBy: 'Photo', targetEntity: Tirages::class)]
+    private $products;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -122,6 +132,36 @@ class Products
     public function setPortfolio(bool $portfolio): self
     {
         $this->portfolio = $portfolio;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tirages[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProducts(Tirages $products): self
+    {
+        if (!$this->products->contains($products)) {
+            $this->products[] = $products;
+            $products->setPhoto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnVente(Tirages $products): self
+    {
+        if ($this->products->removeElement($products)) {
+            // set the owning side to null (unless already changed)
+            if ($products->getPhoto() === $this) {
+                $products->setPhoto(null);
+            }
+        }
 
         return $this;
     }
