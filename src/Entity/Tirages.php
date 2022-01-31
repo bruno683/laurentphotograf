@@ -26,6 +26,12 @@ class Tirages
     #[ORM\Column(type: 'boolean')]
     private $enVente;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $quantité;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $name;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +81,30 @@ class Tirages
     public function setEnVente(bool $enVente): self
     {
         $this->enVente = $enVente;
+
+        return $this;
+    }
+
+    public function getQuantité(): ?int
+    {
+        return $this->quantité;
+    }
+
+    public function setQuantité(?int $quantité): self
+    {
+        $this->quantité = $quantité;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }

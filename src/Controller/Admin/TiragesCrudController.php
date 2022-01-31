@@ -24,6 +24,7 @@ class TiragesCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
+            TextField::new('name'),
             TextField::new('format'),
             MoneyField::new('prix')->setCurrency('EUR'),
             AssociationField::new('Photo'),

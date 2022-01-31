@@ -25,7 +25,11 @@
 						<td>{{(tirage.prix) /100}}€</td>
 						<td>
 							<button class="btn btn-primary " type="submit">
-								<i class="fas fa-cart-arrow-down"></i>
+								<a href="{{ path('cart_add', {id: tirage.id}) }}">
+									<i class="fas fa-cart-arrow-down"></i>
+								</a>
+
+
 							</button>
 						</td>
 					</tr>
