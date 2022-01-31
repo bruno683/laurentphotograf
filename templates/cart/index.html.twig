@@ -6,7 +6,7 @@
 {% block body %}
 	<div class="container">
 		<h1>Votre Panier</h1>
-		{% if items|length > 0 %}
+		{% if items | length > 0  %}
 			<table class="table">
 				<thead>
 					<tr>
@@ -20,7 +20,7 @@
 				</thead>
 				<tbody>
 					{% for item in items %}
-						{% if item.quantité != 0 %}
+						{% if  item.quantité != 0 %}
 							<tr>
 								<td>{{ item.produit.name}}</td>
 								<td><img src="{{ asset('/upload/images/' ~ item.produit.photo.image)}}" alt="photo de l'article" width="65" height="38"></td>
@@ -29,7 +29,7 @@
 								<td>{{item.quantité * ((item.produit.prix)/ 100 ) }}</td>
 								<td>
 									<a href=" {{ path('cart_remove', {id: item.produit.id})}} ">
-										<button class="delete" style="margin: 1.2rem;" type="submit">
+										<button class="delete btn btn-danger" style="margin: 1.2rem;" type="submit">
 											<i class="fas fa-trash-alt"></i>
 										</button>
 									</a>
