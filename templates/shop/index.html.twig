@@ -20,7 +20,7 @@
 					<tr>
 						<th scope="row">{{tirage.id}}</th>
 						<td>{{tirage.format}}</td>
-						<td><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="250" height="150"></td>
+						<td><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="135" height="75"></td>
 						<td>{{(tirage.prix) /100}}€</td>
 					</tr>
 				{% endfor %}
