@@ -6,13 +6,14 @@
 {% block body %}
 	<div class="container col-sm-8 col-md-10">
 		<h1>{{title}}</h1>
-		<table class="table">
+		<table class="table p-2">
 			<thead>
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Format</th>
 					<th scope="col">Photo</th>
 					<th scope="col">Prix</th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -20,13 +21,20 @@
 					<tr>
 						<th scope="row">{{tirage.id}}</th>
 						<td>{{tirage.format}}</td>
-						<td><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="135" height="75"></td>
+						<td><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="65" height="38"></td>
 						<td>{{(tirage.prix) /100}}€</td>
+						<td>
+							<button class="btn btn-primary " type="submit">
+								<i class="fas fa-cart-arrow-down"></i>
+							</button>
+						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
-		</table>
-
-
-	</div>
-{% endblock %}
+		</td>
+	</tr>
+</table>
+<button class="btn btn-success" id="basket">
+	<i class="fas fa-shopping-basket"></i>
+	<div class="count">0</div>
+</button></div>{% endblock %}
