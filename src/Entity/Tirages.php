@@ -19,7 +19,7 @@ class Tirages
     #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
     private $prix;
 
-    #[ORM\ManyToOne(targetEntity: Products::class, inversedBy: 'enVente')]
+    #[ORM\ManyToOne(targetEntity: Products::class, inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private $Photo;
 

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Entity\Products;
+use App\Entity\Tirages;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -63,6 +64,11 @@ class DashboardController extends AbstractDashboardController
             MenuItem::subMenu('tableau de bord du journal', 'fas-fa-bar')->setSubItems([
                 MenuItem::linkToCrud('Liste des articles', 'fa fa-list', Post::class),
                 MenuItem::linkToCrud('Créer un article', 'fa fa-pen', Post::class)->setAction(Crud::PAGE_NEW)
+            ]),
+            MenuItem::section('Tirages Limités'),
+            MenuItem::subMenu('Gestions des tirages', 'fas-fa-bar')->setSubItems([
+                MenuItem::linkToCrud('Listes des tirages', 'fa fa-list', Tirages::class)->setAction(Crud::PAGE_INDEX),
+                MenuItem::linkToCrud('Créer un tirage', 'fa fa-plus', Tirages::class)->setAction(Crud::PAGE_NEW)
             ])
         ];
     }

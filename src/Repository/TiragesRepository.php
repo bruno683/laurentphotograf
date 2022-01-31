@@ -19,32 +19,11 @@ class TiragesRepository extends ServiceEntityRepository
         parent::__construct($registry, Tirages::class);
     }
 
-    // /**
-    //  * @return Tirages[] Returns an array of Tirages objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findEnVente()
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('t.enVente = true')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Tirages
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

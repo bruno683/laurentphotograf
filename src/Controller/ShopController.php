@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Tirages;
+use App\Repository\TiragesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,10 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShopController extends AbstractController
 {
     #[Route('/shop', name: 'shop')]
-    public function index(): Response
+    public function index(TiragesRepository $tirageRepo): Response
     {
+        $title = 'Liste des tirages limités';
+        $item = new Tirages();
+        $tirages = $tirageRepo->findEnVente($item);
+
         return $this->render('shop/index.html.twig', [
-            'controller_name' => 'ShopController',
+            'title' => $title,
+            'tirages' => $tirages
         ]);
     }
 }
