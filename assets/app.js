@@ -10,9 +10,9 @@ import './styles/app.scss';
 import 'bootstrap';
 //const img = document.getElementsByTagName('img');
 
-
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
+
 // start the Stimulus application
 import './bootstrap';
