@@ -4,5 +4,29 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container col-sm-8 col-md-10"></div>
+	<div class="container col-sm-8 col-md-10">
+		<h1>{{title}}</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Format</th>
+					<th scope="col">Photo</th>
+					<th scope="col">Prix</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for tirage in tirages %}
+					<tr>
+						<th scope="row">{{tirage.id}}</th>
+						<td>{{tirage.format}}</td>
+						<td><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="250" height="150"></td>
+						<td>{{(tirage.prix) /100}}€</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+
+	</div>
 {% endblock %}

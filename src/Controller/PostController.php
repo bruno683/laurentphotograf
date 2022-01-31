@@ -14,7 +14,7 @@ class PostController extends AbstractController
     #[Route('/post', name: 'post')]
     public function index(PostRepository $postRepo): Response
     {
-        $user = $this->getUser();
+
         $article = new Post();
         $posts = $postRepo->findPostPublished($article);
 
