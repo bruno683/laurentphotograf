@@ -13,6 +13,13 @@ import 'bootstrap';
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
+const add = document.querySelectorAll(".add");
+
+add.forEach(function(e) {
+    e.addEventListener("click", (event) => {
+        event.preventDefault();
+    }, false);
+});
 
 // start the Stimulus application
 import './bootstrap';
