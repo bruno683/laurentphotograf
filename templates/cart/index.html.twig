@@ -6,60 +6,52 @@
 {% block body %}
 	<div class="container">
 		<h1>Votre Panier</h1>
-		{% for item in items %}
-			{% if items | length > 0 %}
-				<table class="table">
-					<thead>
-						<tr>
-							<th>format</th>
-							<th>photo</th>
-							<th>Prix</th>
-							<th>Quantité</th>
-							<th>Total</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for item in items %}
+		{% if items|length > 0 %}
+			<table class="table">
+				<thead>
+					<tr>
+						<th>nom</th>
+						<th>photo</th>
+						<th>Prix</th>
+						<th>Quantité</th>
+						<th>Total</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in items %}
+						{% if item.quantité != 0 %}
 							<tr>
-								<td>{{ item.format}}</td>
-								<td><img src="{{ asset('/upload/images/' ~ item.photo.image)}}" alt="photo de l'article" width="65" height="38"></td>
-								<td>{{ (item.prix)/ 100}}</td>
+								<td>{{ item.produit.name}}</td>
+								<td><img src="{{ asset('/upload/images/' ~ item.produit.photo.image)}}" alt="photo de l'article" width="65" height="38"></td>
+								<td>{{ (item.produit.prix)/ 100}}</td>
 								<td>{{ item.quantité}}</td>
-								<td>{{item.quantité * ((tirage.prix)/ 100)}}</td>
+								<td>{{item.quantité * ((item.produit.prix)/ 100 ) }}</td>
 								<td>
-									<a href=" {{ path('cart_remove', {id: item.id})}} ">
+									<a href=" {{ path('cart_remove', {id: item.produit.id})}} ">
 										<button class="delete" style="margin: 1.2rem;" type="submit">
 											<i class="fas fa-trash-alt"></i>
 										</button>
 									</a>
 								</td>
 							</tr>
-						{% endfor %}
-					</tbody>
-					<tfoot>
-						<tr>
-							<td colspan="4" style="text-align: right;">
-								Total:
-							</td>
-							<td>
-								{{total}}</td>
-							<td></td>
-						</tr>
-					</tfoot>
-				</table>
-				<form action=" {{ path('payment_checkout')}}" method="POST">
-					<button type="submit">Confirmer</button>
-				</form>
-
-			{% else %}
-				<p>Votre panier est vide</p>
-			{% endif %}
-
-
-		{% endfor %}
-
-
+						{% endif %}
+					{% endfor %}
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4" style="text-align: right;">
+							Total:
+						</td>
+						<td>
+							{{total / 100}}
+						</td>
+						<td></td>
+					</tr>
+				</tfoot>
+			</table>
+		{% else %}
+			<p>Votre panier est vide</p>
+		{% endif %}
 	</div>
-
 {% endblock %}
