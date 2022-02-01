@@ -19,6 +19,7 @@ class ShopController extends AbstractController
         $item = new Tirages();
         $tirages = $tirageRepo->findEnVente($item);
 
+       
 
         return $this->render('shop/index.html.twig', [
             'title' => $title,

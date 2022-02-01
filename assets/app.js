@@ -9,15 +9,18 @@
 import './styles/app.scss';
 import 'bootstrap';
 //const img = document.getElementsByTagName('img');
-
+const axios = require('axios').default;
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
-const add = document.querySelectorAll(".add");
-
+const add = document.querySelectorAll("a.add");
 add.forEach(function(e) {
     e.addEventListener("click", (event) => {
         event.preventDefault();
+        const url = e.href;
+        axios.get(url).then(function(response) {
+            console.log(response);
+        });
     }, false);
 });
 
