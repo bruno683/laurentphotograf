@@ -28,8 +28,8 @@
 								<td>{{ item.quantité}}</td>
 								<td>{{item.quantité * ((item.produit.prix)/ 100 ) }}</td>
 								<td>
-									<a href=" {{ path('cart_remove', {id: item.produit.id})}} ">
-										<button class="delete btn btn-danger" style="margin: 1.2rem;" type="submit">
+									<a class="delete" href=" {{ path('cart_remove', {id: item.produit.id})}} ">
+										<button class="btn btn-danger" style="margin: 1.2rem;" type="submit">
 											<i class="fas fa-trash-alt"></i>
 										</button>
 									</a>
