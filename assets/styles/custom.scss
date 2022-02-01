@@ -46,7 +46,7 @@ main,
     }
 }
 
-#basket {
+.basket {
     position: relative;
 }
 
@@ -60,7 +60,6 @@ main,
     border-radius: 50%;
     color: white;
     background-color: red;
-    text-align: center;
-    top: -5px;
-    right: -5px;
+    top: -10px;
+    right: -10px;
 }

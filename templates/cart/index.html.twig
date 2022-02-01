@@ -4,14 +4,13 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
+	<div class="container col-sm-4 col-md-10">
 		<h1>Votre Panier</h1>
 		{% if items | length > 0  %}
-			<table class="table">
-				<thead>
+			<table class="table p2">
+				<thead class="table-dark">
 					<tr>
 						<th>nom</th>
-						<th>photo</th>
 						<th>Prix</th>
 						<th>Quantité</th>
 						<th>Total</th>
@@ -23,7 +22,6 @@
 						{% if  item.quantité != 0 %}
 							<tr>
 								<td>{{ item.produit.name}}</td>
-								<td><img src="{{ asset('/upload/images/' ~ item.produit.photo.image)}}" alt="photo de l'article" width="65" height="38"></td>
 								<td>{{ (item.produit.prix)/ 100}}</td>
 								<td>{{ item.quantité}}</td>
 								<td>{{item.quantité * ((item.produit.prix)/ 100 ) }}</td>
@@ -40,7 +38,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="4" style="text-align: right;">
+						<td colspan="3" style="text-align: right;">
 							Total:
 						</td>
 						<td>
