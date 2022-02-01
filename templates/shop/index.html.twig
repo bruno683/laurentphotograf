@@ -23,7 +23,7 @@
 						<td>{{tirage.format}}</td>
 						<td><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="65" height="38"></td>
 						<td>{{(tirage.prix) /100}}€</td>
-						<td>
+						<td><!---->
 							<a class="add" href="{{ path('cart_add', {id: tirage.id}) }}">
 								<button class="btn btn-primary "  type="submit">
 									<i class="fas fa-cart-arrow-down"></i>

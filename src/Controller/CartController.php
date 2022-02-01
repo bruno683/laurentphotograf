@@ -50,10 +50,14 @@ class CartController extends AbstractController
             $panier[$id] = 1;
         }
 
-
+        
         $session->set('panier', $panier);
 
-        return $this->redirectToRoute('cart');
+        return $this->json([
+            'code' => 200,
+            'quantité' => $panier[$id]
+        ]);
+       //return $this->redirectToRoute('cart');
     }
 
     #[Route('/cart/remove/{id}', name: 'cart_remove')]
@@ -63,8 +67,12 @@ class CartController extends AbstractController
         $panier = $session->get('panier', []);
 
         if (!empty($panier[$id])) {
+            $panier[$id]--;
+        }
+
+        if (empty($panier[$id])) {
             unset($panier[$id]);
-        } 
+        };
 
         $session->set('panier', $panier);
 
