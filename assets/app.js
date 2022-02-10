@@ -14,7 +14,7 @@ document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
 const add = document.querySelectorAll("a.add");
-
+const remove = document.querySelectorAll("a.remove");
 const count = document.querySelector(".count");
 
 
@@ -23,10 +23,18 @@ add.forEach(function(e) {
         event.preventDefault();
         const url = e.href;
         axios.get(url).then(function(response) {
+            count.ariaValueNow = response.data.quantité;
+        });
+    }, false);
+});
+remove.forEach(function(e) {
+    e.addEventListener("click", (event) => {
+        event.preventDefault();
+        const url = e.href;
+        axios.get(url).then(function(response) {
             count.innerHTML = response.data.quantité;
         });
     }, false);
 });
-
 // start the Stimulus application
 import './bootstrap';
