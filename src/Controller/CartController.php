@@ -68,7 +68,27 @@ class CartController extends AbstractController
 
         if (!empty($panier[$id])) {
             $panier[$id]--;
-            $panier[$id] = $panier[$id];
+        }
+
+        if (empty($panier[$id])) {
+            unset($panier[$id]);
+        };
+
+        $session->set('panier', $panier);
+        return $this->json([
+            'code' => 200,
+            'quantité' => $panier[$id]
+        ]);
+    }
+
+    #[Route('/cart/delete/{id}', name: 'cart_delete')]
+    public function deleteInCart(int $id, Request $request): Response
+    {
+        $session = $request->getSession();
+        $panier = $session->get('panier', []);
+
+        if (!empty($panier[$id])) {
+            $panier[$id]--;
         }
 
         if (empty($panier[$id])) {

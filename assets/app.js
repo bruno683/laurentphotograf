@@ -23,7 +23,8 @@ add.forEach(function(e) {
         event.preventDefault();
         const url = e.href;
         axios.get(url).then(function(response) {
-            count.ariaValueNow = response.data.quantité;
+            count.innerHTML = response.data.quantité;
+            console.log(response.data.quantité);
         });
     }, false);
 });
@@ -33,8 +34,10 @@ remove.forEach(function(e) {
         const url = e.href;
         axios.get(url).then(function(response) {
             count.innerHTML = response.data.quantité;
+            console.log(response.data.quantité);
         });
-    }, false);
+    });
 });
+
 // start the Stimulus application
 import './bootstrap';
