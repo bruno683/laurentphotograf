@@ -47,19 +47,5 @@ main,
 }
 
 .basket {
-    position: relative;
-}
-
-.count {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    color: white;
-    background-color: red;
-    top: -10px;
-    right: -10px;
+    margin-right: 1.2rem;
 }

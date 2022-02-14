@@ -15,26 +15,34 @@ document.addEventListener('contextmenu', function(e) {
 });
 const add = document.querySelectorAll("a.add");
 const remove = document.querySelectorAll("a.remove");
-const count = document.querySelector(".count");
 
 
 add.forEach(function(e) {
     e.addEventListener("click", (event) => {
         event.preventDefault();
         const url = e.href;
-        axios.get(url).then(function(response) {
-            count.innerHTML = response.data.quantité;
+        axios.get(url).then((response) => {
+            alert('Votre article a été ajouté au panier ! \n quantité : ' + response.data.quantité);
             console.log(response.data.quantité);
         });
-    }, false);
+    });
 });
+
+
 remove.forEach(function(e) {
     e.addEventListener("click", (event) => {
         event.preventDefault();
         const url = e.href;
-        axios.get(url).then(function(response) {
-            count.innerHTML = response.data.quantité;
-            console.log(response.data.quantité);
+        axios.get(url).then((response) => {
+            if (response.data.quantité) {
+                alert('L\'article à été supprimé');
+                console.log(response.data.quantité);
+
+            } else {
+                alert('le panier est vide');
+                console.log(response.data.quantité);
+            }
+
         });
     });
 });

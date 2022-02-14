@@ -28,18 +28,16 @@ class CartController extends AbstractController
         }
         $total = 0;
         $totalAmount = 0;
-        
+
+        foreach ($cartWidthData as $item) {
+           $totalItems = $item['quantité'];
+           $totalAmount += $totalItems;
+        }
 
         foreach ($cartWidthData as $item) {
             $totalItems = $item['produit']->getPrix() * $item['quantité'];
             $total += $totalItems;
         }
-
-        foreach ($cartWidthData as $item) {
-            $amount = $item['quantité'];
-            $totalAmount += $amount;
-        }
-        
 
         return $this->render('cart/index.html.twig', [
             'total' => $total,
@@ -59,10 +57,7 @@ class CartController extends AbstractController
         } else {
             $panier[$id] = 1;
         }
-
-        
-        $session->set('panier', $panier);
-
+       $session->set('panier', $panier);
         return $this->json([
             'code' => 200,
             'quantité' => $panier[$id]
@@ -71,24 +66,26 @@ class CartController extends AbstractController
     }
 
     #[Route('/cart/remove/{id}', name: 'cart_remove')]
-    public function removeItem(int $id, Request $request): Response
+    public function removeItem(int $id, Request $request ): Response
     {
         $session = $request->getSession();
         $panier = $session->get('panier', []);
 
         if (!empty($panier[$id])) {
             $panier[$id]--;
-        }
-
+        } 
         if (empty($panier[$id])) {
             unset($panier[$id]);
         };
 
-        $session->set('panier', $panier);
+        $session->set('panier', $panier);  
         return $this->json([
             'code' => 200,
             'quantité' => $panier[$id]
         ]);
+
+        //return $this->redirectToRoute('cart');
+       
     }
 
     #[Route('/cart/delete/{id}', name: 'cart_delete')]

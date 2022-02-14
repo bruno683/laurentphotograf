@@ -6,12 +6,12 @@
 {% block body %}
 	<div class="container col-sm-8 col-md-10">
 		<h1>{{title}}</h1>
-		<table class="table p-2">
+		<table class="table m-auto col-sm-6 col-md-8">
 			<thead class="table-dark">
 				<tr>
 					<th scope="col">Nom</th>
 					<th scope="col">Format</th>
-					<th scope="col">Photo</th>
+					<th scope="col " class="d-none d-lg-block">Photo</th>
 					<th scope="col">Prix</th>
 					<th scope="col"></th>
 				</tr>
@@ -21,20 +21,22 @@
 					<tr>
 						<th scope="row">{{tirage.name}}</th>
 						<td>{{tirage.format}}</td>
-						<td><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="65" height="38"></td>
+						<td class="d-none d-lg-block"><img src="{{ asset('/upload/images/' ~ tirage.photo.image)}}" alt="photo produit" width="65" height="38"></td>
 						<td>{{(tirage.prix) /100}}€</td>
-						<td><!---->
+						<td>
+						<div class="d-flex">
 							<a class="add" href="{{ path('cart_add', {id: tirage.id}) }}">
 								<button class="btn btn-primary basket">
-									<i class="fas fa-cart-arrow-down"></i>
-									
+									<i class="fas fa-cart-arrow-down"></i>						
 								</button>
 							</a>
+								
 							<a class="remove" href=" {{ path('cart_remove', {id: tirage.id}) }}">
 								<button class="btn btn-danger">
 									<i class="fas fa-trash-alt"></i>
 								</button>
 							</a>
+						</div>
 						</td>
 					</tr>
 				{% endfor %}
@@ -44,8 +46,7 @@
 </table>
 <a href="{{path('cart')}}">
 	<button class="btn btn-primary basket" >
-		<i class="fas fa-shopping-basket"></i>
-		<div class="count"></div>
+		<i class="fas fa-shopping-basket"></i>	
 	</button>
 </a>
 {% endblock %}
