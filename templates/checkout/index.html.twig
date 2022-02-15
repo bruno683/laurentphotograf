@@ -6,9 +6,24 @@
 {% endblock %}
 
 {% block body %}
-<div id="smart-button-container">
-      <div style="text-align: center;">
-        <div id="paypal-button-container"></div>
-      </div>
+<main class="container m-auto">
+  <div class="card p-2 d-flex">
+    <div class="card-body">
+    <h1>{{title}}</h1>
+    {% for item in items %}
+      <p>article: {{item.produit.name}}</p>
+      <p>Quantité: {{item.quantité}}</p>
+      <p>montant de la commande: {{(total) / 100}}</p>
+    {% endfor %}
+      
     </div>
+      <div id="smart-button-container">
+        <div style="text-align: center;">
+          <div id="paypal-button-container"></div>
+        </div>
+      </div>
+  </div>
+
+</main>
+
 {% endblock %}

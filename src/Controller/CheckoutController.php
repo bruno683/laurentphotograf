@@ -13,8 +13,35 @@ class CheckoutController extends AbstractController
     #[Route('/checkout', name: 'checkout')]
     public function index(Request $request, TiragesRepository $tirageRepo): Response
     {
+        $session = $request->getSession();
+        $cart = $session->get('panier', []);
+
+        $cartWithData = [];
+
+        foreach($cart as $id => $quantity){
+            $cartWithData[] = [
+                'produit' => $tirageRepo->find($id),
+                'quantité' =>$quantity
+            ];
+        }
+
+        $total = 0;
+        $totalAmount = 0;
+
+        foreach($cartWithData as $item){
+            $totalItems = $item['quantité'];
+            $totalAmount += $totalItems;
+        }
+
+        foreach ($cartWithData as $item) {
+            $totalItems = $item['produit']->getPrix() * $item['quantité'];
+            $total += $totalItems;
+        }
         return $this->render('checkout/index.html.twig', [
-            'controller_name' => 'CheckoutController',
+            'total' => $total,
+            'items' => $cartWithData,
+            'totalAmount' => $totalAmount,
+            'title' => 'Récapitulatif'
         ]);
     }
 }

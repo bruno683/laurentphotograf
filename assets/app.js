@@ -15,7 +15,7 @@ document.addEventListener('contextmenu', function(e) {
 });
 const add = document.querySelectorAll("a.add");
 const remove = document.querySelectorAll("a.remove");
-
+const amount = document.querySelector("td#total");
 
 add.forEach(function(e) {
     e.addEventListener("click", (event) => {
@@ -55,12 +55,11 @@ function initPayPalButton() {
             color: 'gold',
             layout: 'vertical',
             label: 'paypal',
-
         },
 
         createOrder: function(data, actions) {
             return actions.order.create({
-                purchase_units: [{ "amount": { "currency_code": "EUR", "value": 18.1, "breakdown": { "item_total": { "currency_code": "EUR", "value": 1 }, "shipping": { "currency_code": "EUR", "value": 17 }, "tax_total": { "currency_code": "EUR", "value": 0.1 } } } }]
+                purchase_units: [{ "amount": { "currency_code": "EUR", "value": amount.nodeValue, "breakdown": { "item_total": { "currency_code": "EUR", "value": 1 }, "shipping": { "currency_code": "EUR", "value": 17 }, "tax_total": { "currency_code": "EUR", "value": 0.1 } } } }]
             });
         },
 
@@ -76,7 +75,6 @@ function initPayPalButton() {
                 element.innerHTML = '<h3>Thank you for your payment!</h3>';
 
                 // Or go to another URL:  actions.redirect('thank_you.html');
-
             });
         },
 
