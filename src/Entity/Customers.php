@@ -28,6 +28,9 @@ class Customers
     #[ORM\Column(type: 'string', length: 255)]
     private $phone;
 
+    #[ORM\Column(type: 'array')]
+    private $commande = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Customers
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getCommande(): ?array
+    {
+        return $this->commande;
+    }
+
+    public function setCommande(array $commande): self
+    {
+        $this->commande = $commande;
 
         return $this;
     }

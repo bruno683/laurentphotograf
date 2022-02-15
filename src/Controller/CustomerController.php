@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Customers;
 use App\Form\CustomerType;
+use App\Repository\CustomersRepository;
 use App\Repository\TiragesRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,16 +42,21 @@ class CustomerController extends AbstractController
     }
 
     #[Route('/customer/new', name: 'customer_new')]
-    public function newCustomer(Request $request)
+    public function newCustomer(Request $request, ManagerRegistry $doctrine)
     {
         $customer = new Customers();
-
+        $session = $request->getSession();
+        $cart = $session->get('panier', []);
+        $entityManager = $doctrine->getManager();
         $form = $this->createForm(CustomerType::class, $customer);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $customer->setCommande($cart);
             // $form->getData() holds the submitted values
             // but, the original `$task` variable has also been updated
-            $customer = $form->getData();
+            //$customer = $form->getData();
+            $entityManager->persist($customer);
+            $entityManager->flush();
 
             // ... perform some action, such as saving the task to the database
 
@@ -58,6 +65,16 @@ class CustomerController extends AbstractController
 
         return $this->renderForm('customer/index.html.twig', [
             'form' => $form
+        ]);
+    }
+
+    #[Route('/customer/show/{id}', name: 'customer_show')]
+    public function showCustomer(int $id, CustomersRepository $customerRepo)
+    {
+        $customer = $customerRepo->findBy($id);
+
+        return $this->render('customer/show.html.twig', [
+            'customer' => $customer
         ]);
     }
 }
