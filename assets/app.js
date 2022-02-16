@@ -15,7 +15,9 @@ document.addEventListener('contextmenu', function(e) {
 });
 const add = document.querySelectorAll("a.add");
 const remove = document.querySelectorAll("a.remove");
-const amount = document.querySelector("td#total");
+const amount = document.querySelector("span#total");
+const quantity = document.querySelector("span#quantité");
+
 
 add.forEach(function(e) {
     e.addEventListener("click", (event) => {
@@ -48,7 +50,7 @@ remove.forEach(function(e) {
 });
 
 //----------------------PAYPAL-------------------------------
-function initPayPalButton() {
+/*function initPayPalButton() {
     paypal.Buttons({
         style: {
             shape: 'rect',
@@ -59,7 +61,7 @@ function initPayPalButton() {
 
         createOrder: function(data, actions) {
             return actions.order.create({
-                purchase_units: [{ "amount": { "currency_code": "EUR", "value": amount.nodeValue, "breakdown": { "item_total": { "currency_code": "EUR", "value": 1 }, "shipping": { "currency_code": "EUR", "value": 17 }, "tax_total": { "currency_code": "EUR", "value": 0.1 } } } }]
+                purchase_units: [{ "amount": { "currency_code": "EUR", "value": amount.innerHTML, "breakdown": { "item_total": { "currency_code": "EUR", "value": quantity.innerHTML }, "shipping": { "currency_code": "EUR", "value": 17 }, "tax_total": { "currency_code": "EUR", "value": 0.1 } } } }]
             });
         },
 
@@ -83,7 +85,37 @@ function initPayPalButton() {
         }
     }).render('#paypal-button-container');
 }
-initPayPalButton();
+initPayPalButton();*/
+paypal.Buttons({
+
+    // Sets up the transaction when a payment button is clicked
+    createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: amount.innerHTML // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                }
+            }]
+        });
+    },
+
+    // Finalize the transaction after payer approval
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(orderData) {
+            // Successful capture! For dev/demo purposes:
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            var transaction = orderData.purchase_units[0].payments.captures[0];
+            alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+            // When ready to go live, remove the alert and show a success message within this page. For example:
+            // var element = document.getElementById('paypal-button-container');
+            // element.innerHTML = '';
+            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            // Or go to another URL:  actions.redirect('thank_you.html');
+        });
+    }
+}).render('#paypal-button-container');
+
 
 // start the Stimulus application
 import './bootstrap';

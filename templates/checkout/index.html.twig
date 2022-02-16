@@ -12,8 +12,8 @@
     <h1>{{title}}</h1>
     {% for item in items %}
       <p>article: {{item.produit.name}}</p>
-      <p>Quantité: {{item.quantité}}</p>
-      <p>montant de la commande: {{(total) / 100}}</p>
+      <p>Quantité: <span id="quantité">{{item.quantité}}</span></p>
+      <p >montant de la commande: <span id="total">{{(total) / 100}}</span> €</p>
     {% endfor %}
       
     </div>
