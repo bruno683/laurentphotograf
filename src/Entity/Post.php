@@ -43,6 +43,9 @@ class Post
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $createdAt;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $video;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,6 +142,18 @@ class Post
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getvideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setvideo(?string $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }
