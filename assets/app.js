@@ -115,7 +115,7 @@ paypal.Buttons({
         });
     }
 }).render('#paypal-button-container');
-
+//-------------------------------------------------LUMYS--------------------------------------------------------------//
 
 // start the Stimulus application
 import './bootstrap';
