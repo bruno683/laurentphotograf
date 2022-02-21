@@ -31,7 +31,7 @@ class PostCrudController extends AbstractCrudController
             TextareaField::new('content'),
             ImageField::new('image')->setBasePath('/upload/post')->onlyOnIndex(),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-            TextField::new('video')->setCssClass(UrlType::class)->setLabel('URL de la video'),
+            TextField::new('video')->setLabel('URL de la video'),
             BooleanField::new('isPublished'),
             DateField::new('createdAt')->setValue(new DateTime('now'))->onlyOnIndex(),
 
