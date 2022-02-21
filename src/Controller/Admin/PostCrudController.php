@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PostCrudController extends AbstractCrudController
@@ -30,7 +31,7 @@ class PostCrudController extends AbstractCrudController
             TextareaField::new('content'),
             ImageField::new('image')->setBasePath('/upload/post')->onlyOnIndex(),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-            TextField::new('video'),
+            TextField::new('video')->setCssClass(UrlType::class)->setLabel('URL de la video'),
             BooleanField::new('isPublished'),
             DateField::new('createdAt')->setValue(new DateTime('now'))->onlyOnIndex(),
 
