@@ -5,6 +5,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.0.2",
+        "ext-intl": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "aws/aws-sdk-php": "~3.0",
