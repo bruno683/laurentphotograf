@@ -50,26 +50,6 @@ main,
   margin-right: 1.2rem;
 }
 
-.contact-field {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 50%;
-  height: auto;
-  img#contact {
-    width: 150px;
-    height: 150px;
-    margin: 1rem;
-    border-radius: 50%;
-    border: 5px solid rgb(48, 135, 175);
-  }
-  .contact {
-    text-decoration: none;
-    padding: 1rem;
-  }
-}
 .contact-title {
   display: flex;
   justify-content: center;
@@ -102,27 +82,5 @@ main,
     margin-top: -75px;
     border-radius: 50%;
     border: 5px solid rgb(48, 135, 175);
-  }
-}
-@media screen and (max-width: 700px) {
-  .contact-field {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
-    width: auto;
-    height: auto;
-    img#contact {
-      width: 75px;
-      height: 75px;
-      margin: auto;
-      border-radius: 50%;
-      border: 3px solid rgb(48, 135, 175);
-    }
-    .contact {
-      text-decoration: none;
-      padding: 1rem;
-    }
   }
 }
