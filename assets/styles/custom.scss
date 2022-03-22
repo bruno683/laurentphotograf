@@ -7,7 +7,7 @@ h5 {
 }
 
 p {
-  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -49,7 +49,7 @@ main,
 .basket {
   margin-right: 1.2rem;
 }
-
+// ----------------------------------Page Contact----------------------------
 .contact-title {
   display: flex;
   justify-content: center;
@@ -82,5 +82,36 @@ main,
     margin-top: -75px;
     border-radius: 50%;
     border: 5px solid rgb(48, 135, 175);
+  }
+}
+//------------------------------- Page portraits-------------------------------
+
+.portrait {
+  background-image: url("./../../assets/images/woman-2.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 80vw;
+    a {
+      text-decoration: none;
+      color: rgb(56, 55, 55);
+    }
+
+    p {
+      padding: 5px;
+      font-size: larger;
+      background-color: rgba(245, 245, 220, 0.15);
+    }
   }
 }

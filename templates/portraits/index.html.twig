@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PortraitsController!{% endblock %}
+{% block title %}Portraits{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container-fluid">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="portrait">
+          <h1>Portraits</h1>
+        
+    <div class="paragraph">
+        <p>Réaliser une séance portraits pour vous , vos enfants, vos parents , votre famille ou vos amis , c’est figer un instant qui ne pourra plus disparaitre avec ceux qui vous sont cher .</p>
+        <p> Ne perdons pas de vue l’essentiel dans nos vies , je vous aide à créer ces souvenirs dans les meilleures conditions .</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/Laurent/laurentphotograf/src/Controller/PortraitsController.php'|file_link(0) }}">src/Controller/PortraitsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/Laurent/laurentphotograf/templates/portraits/index.html.twig'|file_link(0) }}">templates/portraits/index.html.twig</a></code></li>
-    </ul>
+        <a href=" {{path('app_contact')}} "> <button class="btn btn-primary">Pour plus de renseignements</button> </a>
+    </div>
+    
+    </div>
+      
+    
+   
 </div>
+    
 {% endblock %}
