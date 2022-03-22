@@ -3,49 +3,56 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 p {
-    font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 main {
-    height: 100vh;
+  height: 100vh;
 }
 
 a.menu {
-    margin-top: 0;
-    transition: all 0.4s ease-in-out;
+  margin-top: 0;
+  transition: all 0.4s ease-in-out;
 }
 
 a.menu:hover,
 a.menu:focus {
-    margin-top: -10px;
+  margin-top: -10px;
 }
 
 main,
 .banner-item {
-    animation: transitionIn 4s;
+  animation: transitionIn 4s;
 }
 
 .portfolio {
-    animation: transitionIn 8s;
+  animation: transitionIn 8s;
 }
 
 @keyframes transitionIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .basket {
-    margin-right: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+img#contact {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid rgb(48, 135, 175);
 }
