@@ -115,3 +115,202 @@ main,
     }
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .portrait {
+    background-image: url("./../../assets/images/woman-2.jpg");
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .paragraph {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+      max-width: 80vw;
+      a {
+        text-decoration: none;
+        color: rgb(56, 55, 55);
+      }
+
+      p {
+        padding: 5px;
+        font-size: larger;
+        background-color: rgba(245, 245, 220, 0.15);
+      }
+    }
+  }
+}
+
+//------------------------------------page mariage-------------------------
+.mariages {
+  background-image: url("./../../assets/images/heart-g04447ed14_1920.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 60vw;
+    a {
+      text-decoration: none;
+      color: rgb(56, 55, 55);
+    }
+
+    p {
+      padding: 5px;
+      font-size: larger;
+      background-color: rgba(245, 245, 220, 0.15);
+    }
+  }
+}
+
+//------------------------------------page Evenement-------------------------
+.evenement {
+  background-image: url("./../../assets/images/Naissance.jpg");
+  background-size: cover;
+  background-position: left;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    background-color: rgba(226, 226, 216, 0.466);
+    border-radius: 0.8rem;
+  }
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 60vw;
+    a {
+      text-decoration: none;
+      color: #383737;
+    }
+
+    p {
+      padding: 5px;
+      font-size: larger;
+      background-color: rgba(226, 226, 216, 0.466);
+      border-radius: 1.3rem;
+    }
+  }
+}
+//------------------------------------page aquashooting-------------------------
+.aquashooting {
+  background-image: url("./../../assets/images/surf.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 60vw;
+    a {
+      text-decoration: none;
+      color: rgb(56, 55, 55);
+    }
+
+    p {
+      padding: 5px;
+      font-size: larger;
+      background-color: rgba(245, 245, 220, 0.445);
+    }
+  }
+}
+
+//------------------------------------page boudoir-------------------------
+.boudoir {
+  background-image: url("./../../assets/images/Woman.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: aliceblue;
+  }
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 80vw;
+    a {
+      text-decoration: none;
+      color: rgb(56, 55, 55);
+    }
+
+    p {
+      padding: 5px;
+      font-size: larger;
+      border-radius: 00.8rem;
+      color: aliceblue;
+      //background-color: rgba(245, 245, 220, 0.445);
+    }
+  }
+}
+
+//------------------------------------page corporate------------------------
+.corporate {
+  background-image: url("./../../assets/images/corporate.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: aliceblue;
+  }
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    max-width: 60vw;
+    a {
+      text-decoration: none;
+      color: rgb(56, 55, 55);
+    }
+
+    p {
+      padding: 5px;
+      font-size: larger;
+      background-color: rgba(180, 180, 176, 0.541);
+      border-radius: 0.8rem;
+    }
+  }
+}

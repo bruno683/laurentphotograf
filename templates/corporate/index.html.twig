@@ -1,20 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CorporateController!{% endblock %}
+{% block title %}Corporate{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container-fluid">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="corporate">
+          <h1>Corporate</h1>
+        
+        <div class="paragraph">
+            <p>Votre entreprise a besoin des meilleures photos pour faire la différence dans cet ère numérique . Vos produits , services , vous même ou bien votre équipe . <br> Vous avez besoin de photos pour expliquer au mieux a vos clients qui vous êtes et ce que vous faites . Discutons de vos besoins ensemble pour mettre en oeuvre la meilleure stratégie commerciale .</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/Laurent/laurentphotograf/src/Controller/CorporateController.php'|file_link(0) }}">src/Controller/CorporateController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/Laurent/laurentphotograf/templates/corporate/index.html.twig'|file_link(0) }}">templates/corporate/index.html.twig</a></code></li>
-    </ul>
+            <a href=" {{path('app_contact')}} "> <button class="btn btn-primary">Pour plus de renseignements</button> </a>
+        </div>
+    </div>
 </div>
 {% endblock %}

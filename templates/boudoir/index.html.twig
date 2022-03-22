@@ -1,20 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BoudoirController!{% endblock %}
+{% block title %}Boudoir{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container-fluid">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="boudoir">
+          <h1>Boudoir</h1>
+        
+        <div class="paragraph">
+            <p>Pourquoi faire une séance boudoir? Les raisons sont multiples et personnelles .
+ Elles peuvent servir tout simplement a se faire plaisir ou bien a se rassurer , à se trouver belle ou beau grâce a un beau rendu artistique . <br> Vous aussi vous avez droit à un oeil artistique sur votre plastique . seul(e) ou en couple , personnelle ou professionnelle , je serais à votre écoute pour un rendu qui saura vous épater  </p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/Laurent/laurentphotograf/src/Controller/BoudoirController.php'|file_link(0) }}">src/Controller/BoudoirController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Bruno/Desktop/Code/Laurent/laurentphotograf/templates/boudoir/index.html.twig'|file_link(0) }}">templates/boudoir/index.html.twig</a></code></li>
-    </ul>
+            <a href=" {{path('app_contact')}} "> <button class="btn btn-primary">Pour plus de renseignements</button> </a>
+        </div>
+    </div>
 </div>
 {% endblock %}
