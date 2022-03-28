@@ -15,7 +15,7 @@ html {
 }
 
 main {
-  height: 100vh;
+  height: auto;
 }
 
 a.menu {
@@ -48,6 +48,22 @@ main,
 
 .basket {
   margin-right: 1.2rem;
+}
+
+.presentation {
+  background-image: url(./../../assets/images/camera.jpg);
+  background-position: center;
+  background-size: cover;
+  background-color: #383737a6;
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.8rem;
+  justify-content: center;
+  align-items: center;
 }
 // ----------------------------------Page Contact----------------------------
 .contact-title {
