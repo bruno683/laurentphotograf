@@ -20,39 +20,16 @@
 		{% endblock %}
 
 		{% block javascripts %}
+			<script src="https://www.paypal.com/sdk/js?client-id=Aen7I84ewIdzk-GGC22SKK-Fmx-woGpJrrPAroTrgwfMC1fc5Xgvr0DVyw_EhkoxlUjLT54vwXL171kq&currency=EUR"></script>
 
-			<!--Lumys-->
-			<script type="text/javascript">
-				var lumysUrl = "https://lumys.photo";
-var lumysApiKey = "ks8coomhdvsp04ce";
-// var lumysCategory
-="votre catégorie";
-!function (d, s, w)
-if (d.getElementById(w)) 
-return;
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+		{% include "navbar/navbar.html.twig" %}
 
-
-var g = d.createElement(s),
-e = d.getElementsByTagName(s)0;
-g.id = w;
-g.src = lumysUrl + "/widget/
- lumys - widget - v1.js ";
-e.parentNode.insertBefore(g, e);
-}(document, 'script', 'lumys-
- widget - loader '); </script>
-				<!--fin Lumys-->
-				<!--fin Lumys-->
-
-				<script src="https://www.paypal.com/sdk/js?client-id=Aen7I84ewIdzk-GGC22SKK-Fmx-woGpJrrPAroTrgwfMC1fc5Xgvr0DVyw_EhkoxlUjLT54vwXL171kq&currency=EUR"></script>
-
-				{{ encore_entry_script_tags('app') }}
-			{% endblock %}
-		</head>
-		<body>
-			{% include "navbar/navbar.html.twig" %}
-
-			<section class="content"> {% block body %}{% endblock %}
-				</section>
-				{% include "footer/footer.html.twig" %}
-			</body>
-		</html>
+		<section class="content"> {% block body %}{% endblock %}
+			</section>
+			{% include "footer/footer.html.twig" %}
+		</body>
+	</html>
