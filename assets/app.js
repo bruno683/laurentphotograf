@@ -25,7 +25,7 @@ add.forEach(function(e) {
         const url = e.href;
         axios.get(url).then((response) => {
             alert('Votre article a été ajouté au panier ! \n quantité : ' + response.data.quantité);
-            console.log(response.data.quantité);
+            console.log(response.data);
         });
     });
 });

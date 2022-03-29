@@ -1,33 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Paiement{% endblock %}
-
-{% block javascript %}
+{% block title %}Paiement
 {% endblock %}
 
-{% block body %}
-<main class="container col-12">
-<div class="row">
-  <div class="card p-2 m-auto mt-5 d-flex flex-row col-sm-6 col-md-10">
-  
-    <div class="card-body col-sm-2 col-md-4 border-end">
-    <h1>{{title}}</h1>
-    {% for item in items %}
-      <p>article: {{item.produit.name}}</p>
-      <p>Quantité: <span id="quantité">{{item.quantité}}</span></p>
-      <p >montant de la commande: <span id="total">{{(total) / 100}}</span> €</p>
-    {% endfor %}
-      
-    </div>
-      <div class="col-sm-2 col-md-4" id="smart-button-container">
-        <div style="text-align: center;">
-          <div id="paypal-button-container"></div>
-        </div>
-      </div>
-    </div>
-</div>
-    
+{% block javascript %}{% endblock %}
 
-</main>
+{% block body %}
+	<main class="container col-12">
+		<div class="row">
+			<div class="card p-2 m-auto mt-5 d-flex flex-lg-row flex-sx-col flex-sm-row col-10">
+
+				<div class="card-body col-sm-6 col-md-8 border-sm-none border-end">
+					<h1>{{title}}</h1>
+					{% for item in items %}
+						<p>article:
+							{{item.produit.name}}</p>
+						<p>Quantité:
+							<span id="quantité">{{item.quantité}}</span>
+						</p>
+						<p>montant de la commande:
+							<span id="total">{{(total) / 100}}</span>
+							€</p>
+					{% endfor %}
+				</div>
+
+				<div class="col-sm-6 col-md-8 ps-2" id="smart-button-container">
+					<div style="text-align: center;">
+						<div id="paypal-button-container"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
 
 {% endblock %}
