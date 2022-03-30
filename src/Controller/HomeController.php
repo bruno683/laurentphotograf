@@ -22,17 +22,12 @@ class HomeController extends AbstractController
         $posts = $postRepository->findPostPublished($article);
         $listPost[] = [];
         // Dans une boucle je parcours le tableau
-        for ($i = 0; $i < 5; $i++) {
-            if ($posts) {
-                $listPost[] += $posts[$i];
-                return $listPost;
-            } else {
-                return false;
-            }
+        foreach ($posts as $key => $value) {
         }
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'Accueil',
-            'posts' => $listPost
+            'posts' => $posts
         ]);
     }
 }
