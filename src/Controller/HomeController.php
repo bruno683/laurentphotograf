@@ -20,10 +20,7 @@ class HomeController extends AbstractController
         $article = new Post();
         // Je cherche tous les articles
         $posts = $postRepository->findPostPublished($article);
-        $listPost[] = [];
-        // Dans une boucle je parcours le tableau
-        foreach ($posts as $key => $value) {
-        }
+
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'Accueil',
