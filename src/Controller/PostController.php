@@ -19,7 +19,7 @@ class PostController extends AbstractController
         $posts = $postRepo->findPostPublished($article);
 
         return $this->render('post/index.html.twig', [
-            'title' => 'Activités',
+            'title' => 'Actualités',
             'posts' => $posts
         ]);
     }

@@ -7,12 +7,12 @@
 	<div class="post m-5">
 		<h1>{{title}}</h1>
 		{% for post in posts %}
-			<div class="container m-auto col-sm-8 col-lg-12">
+			<div class="container col-sm-8 col-lg-6">
 				<div class="row mt-5">
-					<div class="card rounded shadow-lg col-sm-6 col-lg-3 p-2">
-						<img src="{{asset('upload/post/' ~ post.image)}}" class="card-img-top" alt="image de la carte">
+					<div class="card rounded shadow-lg p-2">
+						<img src="{{asset('upload/post/' ~ post.image)}}" class="card-img-top" alt="image de la carte" ">
 						<div class="card-body">
-							<h5 class="card-title">{{post.title}}</h5>
+							<h3 class="card-title">{{post.title}}</h3>
 							<p class="card-text">{{post.content|u.truncate(100)}}</p>
 							<a href="{{path('show_post',{'id': post.id})}}" class="btn btn-primary">Lire plus</a>
 						</div>

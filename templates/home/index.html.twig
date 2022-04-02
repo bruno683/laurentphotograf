@@ -101,17 +101,37 @@
 						<span class="visually-hidden">Suivant</span>
 					</button>
 				</div>
-			</div>
-			<div class="listPost">
 				<h2>Derniéres actualitées</h2>
-				<ul>
+			</div>
+			<hr>
+			
+			
+		</section>
+		<div class="listPost d-flex  flex-wrap align-items-center">
+				
+				{% if posts %}
 					{% for post in posts %}
-						<li>{{ post.title}}</li>
+					
+				<div class="container col-sm-6 col-lg-4">
+					<div class="row mt-5">
+						<div class="card rounded m-auto shadow-lg  p-2">
+							<img src="{{asset('upload/post/' ~ post.image)}}" class="card-img-top" alt="image de la carte">
+							<div class="card-body">
+								<h3 class="card-title">{{post.title}}</h3>
+								<p class="card-text">{{post.content|u.truncate(100)}}</p>
+								<a href="{{path('show_post',{'id': post.id})}}" class="btn btn-primary">Lire plus</a>
+							</div>
+						</div>
+					</div>
+				</div>
 					{% endfor %}
-				</ul>
+					{% else %}
+						Il n'y à actuellement aucun article
+				{% endif %}
+				
+
 
 			</div>
-		</section>
 	</main>
 
 {% endblock %}

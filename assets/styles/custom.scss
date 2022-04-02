@@ -37,11 +37,18 @@ a.menu:focus {
 main,
 .banner-item {
   animation: transitionIn 4s;
+
 }
 
 .portfolio {
   animation: transitionIn 8s;
 }
+
+.listPost {
+ 
+  background-color: #918f8f7c;
+
+  }
 
 @keyframes transitionIn {
   from {
