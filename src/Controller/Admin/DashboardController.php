@@ -54,7 +54,7 @@ class DashboardController extends AbstractDashboardController
     {
 
         return [
-            MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
+            MenuItem::linkToDashboard('tableau de bord', 'fa fa-home'),
             MenuItem::section('Photos'),
             MenuItem::subMenu('Gestion des photos photos', 'fas-fa-bar')->setSubItems([
                 MenuItem::linkToCrud('Afficher les Photos', 'fa fa-eye', Products::class),
@@ -69,7 +69,15 @@ class DashboardController extends AbstractDashboardController
             MenuItem::subMenu('Gestions des tirages', 'fas-fa-bar')->setSubItems([
                 MenuItem::linkToCrud('Listes des tirages', 'fa fa-list', Tirages::class)->setAction(Crud::PAGE_INDEX),
                 MenuItem::linkToCrud('Créer un tirage', 'fa fa-plus', Tirages::class)->setAction(Crud::PAGE_NEW)
+            ]),
+            MenuItem::section('Revenir au site'),
+            MenuItem::subMenu('Sélectionner une page', 'fa fa-sitemap')->setSubItems([
+                MenuItem::linkToRoute('Acceuil', 'fa fa-home', 'home'),
+                MenuItem::linkToRoute('Portfolio', 'fas fa-camera-retro', 'portfolio'),
+                MenuItem::linkToRoute('Journal', 'fa fa-newspaper', 'post'),
+                MenuItem::linkToRoute('Boutique', 'fas fa-store', 'shop')
             ])
+
         ];
     }
 }
