@@ -64,19 +64,23 @@ main,
 }
 
 .presentation {
-  background-image: url(./../../assets/images/camera.jpg);
-  background-position: center;
-  background-size: cover;
-  background-color: #383737a6;
+  background-color: #b4b1b141;
   width: 100%;
   height: auto;
   padding: 2rem;
-  color: aliceblue;
+  color: rgb(12, 12, 12);
   display: flex;
   flex-direction: column;
-  border-radius: 0.8rem;
   justify-content: center;
   align-items: center;
+  h2 {
+    
+    font-family: 'Send Flowers', cursive;
+  }
+  p{
+    padding-bottom: 0.8rem;
+    border-top: #161616 3px solid;
+  }
 }
 // ----------------------------------Page Contact----------------------------
 .contact-title {
@@ -146,6 +150,26 @@ main,
 }
 
 @media screen and (min-width: 1200px) {
+  .presentation {
+    background-color: #b4b1b141;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    color: rgb(12, 12, 12);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-family: 'Send Flowers', cursive;
+      padding-right: 0.8rem;
+    }
+    p {
+      border: none;
+      border-left: #383737 3px solid;
+      padding-left: 0.8rem;
+    }
+  }
   .portrait {
     background-image: url("./../../assets/images/woman-2.jpg");
     background-size: cover;
