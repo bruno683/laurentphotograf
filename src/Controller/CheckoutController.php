@@ -33,10 +33,15 @@ class CheckoutController extends AbstractController
             $totalAmount += $totalItems;
         }
 
+        
+
         foreach ($cartWithData as $item) {
             $totalItems = $item['produit']->getPrix() * $item['quantité'];
             $total += $totalItems;
         }
+
+        
+        
         return $this->render('checkout/index.html.twig', [
             'total' => $total,
             'items' => $cartWithData,

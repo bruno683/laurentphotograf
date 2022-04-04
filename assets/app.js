@@ -17,6 +17,7 @@ const add = document.querySelectorAll("a.add");
 const remove = document.querySelectorAll("a.remove");
 const amount = document.querySelector("span#total");
 const quantity = document.querySelector("span#quantité");
+const name = document.querySelector("span#name");
 
 
 add.forEach(function(e) {
@@ -92,13 +93,16 @@ paypal.Buttons({
     createOrder: function(data, actions) {
         return actions.order.create({
             purchase_units: [{
+                reference_id: name.innerHTML,
                 amount: {
-                    value: amount.innerHTML // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                    currency_code: "EUR",
+                    value: amount.innerHTML, // Can reference variables or functions. Example: `value: document.getElementById('...').value`
                 }
-            }]
+            }]               
         });
     },
-
+    // after shipping selection
+    
     // Finalize the transaction after payer approval
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(orderData) {
@@ -106,7 +110,7 @@ paypal.Buttons({
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             var transaction = orderData.purchase_units[0].payments.captures[0];
             alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-
+    
             // When ready to go live, remove the alert and show a success message within this page. For example:
             // var element = document.getElementById('paypal-button-container');
             // element.innerHTML = '';
