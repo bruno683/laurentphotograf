@@ -22,6 +22,13 @@
 						<p>montant de la commande:
 							<span id="total">{{(total) / 100}}</span>
 							€</p>
+						<p>Dont TVA(5,5%):
+							<span id="tva">{{(tvaIncluded) / 100}}</span>
+						</p>
+						<p>Dont frais de port:
+							<span id="shipping">{{(shipping) / 100}}
+								€</span>
+						</p>
 					{% endfor %}
 				</div>
 
