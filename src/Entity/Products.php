@@ -42,7 +42,7 @@ class Products
     #[ORM\Column(type: 'boolean')]
     private $portfolio;
 
-    #[ORM\OneToMany(mappedBy: 'Photo', targetEntity: Tirages::class, cascade:['persist'])]
+    #[ORM\OneToMany(mappedBy: 'Photo', targetEntity: Tirages::class)]
     private $products;
 
     public function __construct()
