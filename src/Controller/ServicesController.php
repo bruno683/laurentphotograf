@@ -12,7 +12,7 @@ class ServicesController extends AbstractController
     public function index(): Response
     {
         return $this->render('services/index.html.twig', [
-            'controller_name' => 'ServicesController',
+            'title' => 'Les tirages limités'
         ]);
     }
 }
