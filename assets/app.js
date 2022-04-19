@@ -9,10 +9,11 @@
 import './styles/app.scss';
 import 'bootstrap';
 //const img = document.getElementsByTagName('img');
-const axios = require('axios').default;
+/*const axios = require('axios').default;
+*/
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
-});
+})/*
 const add = document.querySelectorAll("a.add");
 const remove = document.querySelectorAll("a.remove");
 const amount = document.querySelector("span#total");
@@ -87,7 +88,7 @@ remove.forEach(function(e) {
     }).render('#paypal-button-container');
 }
 initPayPalButton();*/
-paypal.Buttons({
+/*paypal.Buttons({
 
     // Sets up the transaction when a payment button is clicked
     createOrder: function(data, actions) {
@@ -118,7 +119,7 @@ paypal.Buttons({
             //Or go to another URL:  actions.redirect('thank_you.html');
         });
     }
-}).render('#paypal-button-container');
+}).render('#paypal-button-container');*/
 //-------------------------------------------------LUMYS--------------------------------------------------------------//
 
 // start the Stimulus application

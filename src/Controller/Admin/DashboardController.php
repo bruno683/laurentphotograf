@@ -65,17 +65,16 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToCrud('Liste des articles', 'fa fa-list', Post::class),
                 MenuItem::linkToCrud('Créer un article', 'fa fa-pen', Post::class)->setAction(Crud::PAGE_NEW)
             ]),
-            MenuItem::section('Tirages Limités'),
+            /*MenuItem::section('Tirages Limités'),
             MenuItem::subMenu('Gestions des tirages', 'fas-fa-bar')->setSubItems([
                 MenuItem::linkToCrud('Listes des tirages', 'fa fa-list', Tirages::class)->setAction(Crud::PAGE_INDEX),
                 MenuItem::linkToCrud('Créer un tirage', 'fa fa-plus', Tirages::class)->setAction(Crud::PAGE_NEW)
-            ]),
+            ]),*/
             MenuItem::section('Revenir au site'),
             MenuItem::subMenu('Sélectionner une page', 'fa fa-sitemap')->setSubItems([
                 MenuItem::linkToRoute('Acceuil', 'fa fa-home', 'home'),
                 MenuItem::linkToRoute('Portfolio', 'fas fa-camera-retro', 'portfolio'),
-                MenuItem::linkToRoute('Journal', 'fa fa-newspaper', 'post'),
-                MenuItem::linkToRoute('Boutique', 'fas fa-store', 'shop')
+                MenuItem::linkToRoute('Journal', 'fa fa-newspaper', 'post')
             ])
 
         ];
