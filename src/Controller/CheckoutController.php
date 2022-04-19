@@ -24,21 +24,12 @@ class CheckoutController extends AbstractController
                 'quantité' =>$quantity
             ];
         }
-        $shipping = 1700;
         $total = 0;
         $totalAmount = 0;
 
         foreach($cartWithData as $item){
             $totalItems = $item['quantité'];
             $totalAmount += $totalItems;
-        }
-
-        
-
-        foreach ($cartWithData as $item) {
-            $totalItems = ($item['produit']->getPrix() * $item['quantité']) ;
-            $totalItems +=  ($shipping * $item['quantité']);
-            $total += $totalItems;
         }
 
         $tva = 0.055;
@@ -48,9 +39,13 @@ class CheckoutController extends AbstractController
             $newTva += ($tvaIncluded * $item['quantité']);
         }
         foreach ($cartWithData as $item) {
+            $totalItems = ($item['produit']->getPrix() * $item['quantité']);
+            $total += $totalItems;
+        }
+        /*foreach ($cartWithData as $item) {
             # code...
             $totalShipping = ($shipping * $item['quantité']);
-        }
+        }*/
         
         
         return $this->render('checkout/index.html.twig', [
@@ -59,7 +54,6 @@ class CheckoutController extends AbstractController
             'totalAmount' => $totalAmount,
             'tvaIncluded' => $newTva,
             'title' => 'Récapitulatif',
-            'shipping' => $totalShipping
         ]);
     }
 }
