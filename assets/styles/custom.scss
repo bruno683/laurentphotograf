@@ -42,17 +42,39 @@ a.menu:focus {
   justify-content: center;
   align-items: center;
   width: 100vw;
-    p {
-      width: 30%;
-      padding: 0.8rem;
-      border-left: rgb(151, 150, 150) 6px solid;
-    }
-    .paragraph-right {
-    width: 50vw;
+  .banner {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: center; 
+    
+    .paragraph-left{
+      
+      p {
+      width: 90%;
+      padding: 0.8rem;
+      border-right: rgb(151, 150, 150) 6px solid;
+    }
+    }
+    
+    img#tirage-1 {
+      align-self: center;
+      width: 300px;
+      padding: 0.8rem;
+    }
+    .paragraph-right {
+    //align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    
+    p {
+      padding: 0.8rem;
+      width: 90%;
+      border-left: rgb(151, 150, 150) 6px solid;
+    }
+    //align-items: flex-end;
   }
+  }
+    
 }
 
 main,
@@ -171,7 +193,47 @@ main,
     }
   }
 }
-
+@media screen and (min-width: 740px){
+  .service-section {
+    display: flex;
+    padding: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    .banner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      
+      .paragraph-left{
+        
+        p {
+          width: 50%;
+          padding: 0.8rem;
+          //border-left: rgb(151, 150, 150) 6px solid;
+        }
+      }
+      
+      img#tirage-1 {
+        width: 80%;
+        padding: 0.8rem;
+      }
+      .paragraph-right {
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        p {
+          padding: 0.8rem;
+          width: 50%;
+          //border-right: rgb(151, 150, 150) 6px solid;
+        }
+      }
+    }
+      
+  }
+}
 @media screen and (min-width: 1200px) {
   .presentation {
     background-color: #b4b1b141;
