@@ -1,13 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ServicesController!{% endblock %}
+{% block title %}Tirages limités{% endblock %}
 
 {% block body %}
     <main class="service-main">
-        <section class="service-session">
+        <section class="service-section">
             <h1>{{title}}</h1>
             <div class="banner">
-                <h2>Les photos sur vos mur</h2> 
+                <h2>Les photos sur vos murs</h2> 
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nulla qui est vitae excepturi. Ipsam, 
+                nemo assumenda dicta maxime rerum dolor autem at labore, ea, eum reiciendis. 
+                Reprehenderit fugit animi assumenda vitae officiis minus deleniti quasi necessitatibus neque possimus suscipit 
+                quia molestiae nam, vero reiciendis quaerat minima ea autem sunt?
+                </p>
+                <img id="tirage-1" src="{{ asset('build/images/wallapp-16042022-083434.jpg') }}" alt="tirage-1">
+                <div class="paragraph-right">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima laudantium, aliquid repudiandae, sunt id, 
+                        porro officia quam nisi doloremque magnam exercitationem deleniti rem? Veniam, odit quam. 
+                        Quas et iste, impedit, laudantium quisquam assumenda, eaque error maxime cumque labore totam! Ducimus aspernatur 
+                        porro reiciendis voluptatum omnis, est fugit dolor facere sit!
+                    </p>
+                </div>
             </div>
         </section>
         <aside class="service-aside">
