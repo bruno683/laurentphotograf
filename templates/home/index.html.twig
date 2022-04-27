@@ -108,13 +108,13 @@
 				{% if posts %}
 					{% for post in posts %}
 					
-				<div class="container col-sm-6 col-lg-4">
-					<div class="row mt-5">
+				<div class="container col-sm-4 col-lg-6">
+					<div class="row m-lg-5 m-md-none m-sm-auto ">
 						<div class="card rounded m-auto shadow-lg  p-2">
 							<img src="{{asset('upload/post/' ~ post.image)}}" class="card-img-top" alt="image de la carte">
 							<div class="card-body">
 								<h3 class="card-title">{{post.title}}</h3>
-								<p class="card-text">{{post.content|u.truncate(100)}}</p>
+								<p class="card-text text-justify">{{post.content|u.truncate(100)}}</p>
 								<a href="{{path('show_post',{'id': post.id})}}" class="btn btn-primary">Lire plus</a>
 							</div>
 						</div>
