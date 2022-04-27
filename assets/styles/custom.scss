@@ -50,9 +50,10 @@ a.menu:focus {
     .paragraph-left{
       
       p {
-      width: 90%;
-      padding: 0.8rem;
-      border-right: rgb(151, 150, 150) 6px solid;
+        text-align: justify;
+        width: 90%;
+        padding: 0.8rem;
+        border-right: rgb(151, 150, 150) 6px solid;
     }
     }
     
@@ -69,8 +70,9 @@ a.menu:focus {
     .paragraph-right {
       display: flex;
       flex-direction: column;
-      width: 50%;
+      width: 100%;
       p {
+        text-align: justify;
         padding: 0.8rem;
         width: 100%;
         border-left: rgb(151, 150, 150) 6px solid;
@@ -224,7 +226,8 @@ main,
       justify-content: center; 
       
       .paragraph-left{
-        
+        width: 80%;
+        margin: auto;
         p {
           width: 50%;
           padding: 0.8rem;
@@ -241,11 +244,13 @@ main,
         padding: 0.8rem;
       }
       .paragraph-right {
-        align-self: flex-end;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        width: 80%;
+        margin: auto;
         p {
+          
           padding: 0.8rem;
           width: 50%;
           //border-right: rgb(151, 150, 150) 6px solid;
