@@ -117,7 +117,7 @@
 								<img src="{{asset('upload/post/' ~ post.image)}}" class="card-img-top" alt="image de la carte">
 								<div class="card-body">
 									<h3 class="card-title">{{post.title}}</h3>
-									<p class="card-text">{{post.content|u.truncate(100)}}<br><span class="text-muted">Publié le: {{post.createdAt| date("D, d M Y H:i")}}</span></p>
+									<p class="card-text">{{post.content|u.truncate(100)}}<br><span class="text-muted">Publié le: {{post.createdAt| date("D, d M Y H:i", "Europe/Paris")}}</span></p>
 									<a href="{{path('show_post',{'id': post.id})}}" class="btn btn-primary">Lire plus</a>
 								</div>
 							</div>
