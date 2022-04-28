@@ -14,9 +14,10 @@ class PostController extends AbstractController
     #[Route('/post', name: 'post')]
     public function index(PostRepository $postRepo): Response
     {
-
+        $user = $this->getUser();
         $article = new Post();
         $posts = $postRepo->findPostPublished($article);
+        $article->setAuthor($user);
 
         return $this->render('post/index.html.twig', [
             'title' => 'Actualités',
