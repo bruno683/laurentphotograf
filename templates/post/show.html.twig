@@ -6,9 +6,10 @@
 {% block body %}
 	<section class="container-fluid col-md-10 col-sm-12 m-auto">
 		<div class="card col-md-8 col-sm-10 m-auto my-4 shadow-lg">
-			<h1>{{post.title}}</h1>
+			<h1 style="align-self: center">{{post.title}}</h1>
 			<img src="{{asset('/upload/post/' ~ post.image)}}" alt="image du post">
-			<p class="p-3 word-wrap">{{post.content}}</p>
+			<p class="p-3 word-wrap" style="text-align: justify">{{post.content}}<br><br><span class="text-muted">Publié le: {{post.createdAt| date("D, d M Y H:i")}}</span><p class="text-muted">{{post.author}}</p></p>
+			
 			{% if post.video %}
 				<div id="player" class="m-auto mb-2">
 					<iframe width="360" height="299" src="{{post.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
