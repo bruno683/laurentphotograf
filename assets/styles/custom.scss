@@ -341,7 +341,7 @@ main,
     p {
       padding: 5px;
       font-size: larger;
-      color: antiquewhite;
+      color: rgb(15, 15, 15);
       background-color: rgba(82, 82, 81, 0.15);
     }
   }
@@ -355,7 +355,7 @@ main,
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   h1 {
     background-color: rgba(226, 226, 216, 0.466);
@@ -390,7 +390,7 @@ main,
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   .paragraph {

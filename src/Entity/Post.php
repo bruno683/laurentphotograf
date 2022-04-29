@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use App\Entity\User;
-use DateTimeInterface;
+
+
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\File\File;
@@ -33,8 +33,8 @@ class Post
     #[Vich\UploadableField(mapping: 'post_images', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'posts')]
-    #[ORM\Column(nullable: true)]
+    
+    #[ORM\Column(nullable: false)]
     private $author;
 
     #[ORM\Column(type: 'boolean')]
@@ -87,12 +87,12 @@ class Post
         return $this;
     }
 
-    public function getAuthor(): ?User
+    public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    public function setAuthor(?User $author): self
+    public function setAuthor(?string $author): self
     {
         $this->author = $author;
 
@@ -157,4 +157,5 @@ class Post
 
         return $this;
     }
+
 }

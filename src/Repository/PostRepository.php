@@ -21,10 +21,14 @@ class PostRepository extends ServiceEntityRepository
 
     public function findPostPublished()
     {
-        return $this->createQueryBuilder('p')
+        $q = $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->andWhere('p.isPublished = true');
+        return $q->getQuery()->getResult();
+        /*return $this->createQueryBuilder('p')
             ->andWhere('p.isPublished = true')
             ->orderBy('p.createdAt', 'DESC')
             ->getQuery()
-            ->getResult();
+            ->getResult();*/
     }
 }

@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Entity\Products;
-use App\Entity\Tirages;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,8 +75,11 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToRoute('Acceuil', 'fa fa-home', 'home'),
                 MenuItem::linkToRoute('Portfolio', 'fas fa-camera-retro', 'portfolio'),
                 MenuItem::linkToRoute('Journal', 'fa fa-newspaper', 'post')
+            ]),
+            MenuItem::section('Utilisateurs Admin'),
+            MenuItem::subMenu('liste', 'fa fa-list')->setSubItems([
+                MenuItem::linkToCrud('Listes des utilisateurs', 'fas fa-user', User::class),
             ])
-
         ];
     }
 }
